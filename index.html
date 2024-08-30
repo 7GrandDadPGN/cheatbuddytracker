@@ -1,0 +1,25 @@
+<head>
+    <title>Cheatbuddy Tracker</title>
+    <meta name="description" content="Tracking the likes of cheatbuddy to come around someday.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="assets/fav.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/main.css">
+    <script>
+        setTimeout(function() { document.getElementsByClassName('oneday')[0].volume = 0.1; }, 100);
+        setInterval(function () {
+            // lazy js code moment
+            const timeSince = Date.now() - Date.UTC(2024, 7, 9, 16, 36, 0, 0);
+            const sec = Math.floor(timeSince / 1000);
+            document.getElementsByClassName('wegonnagetitoneday')[0].innerText = `It has been
+                ${Math.floor(sec / 60 / 60 / 24)} days, ${Math.floor(sec / 60 / 60) % 24} hours, ${Math.floor(sec / 60) % 60} minutes, and ${sec % 60} seconds
+                since cheatbuddy has spoken 🙏
+            `;
+        }, 100);
+    </script>
+</head>
+<body>
+    <video class="oneday" src="assets/oneday.mp4" onclick="this.muted = false;" autoplay muted loop></video>
+    <div class="imahaveitoneday">
+        <h3 class="wegonnagetitoneday"></h3>
+    </div>
+</body>
