@@ -6,20 +6,35 @@
 	<link rel="stylesheet" href="assets/main.css">
 	<script>
 		setInterval(function() {
-			// lazy js code moment
 			const timeSince = Date.now() - Date.UTC(2024, 8, 12, 12, 43, 0, 0);
-			const sec = Math.floor(timeSince / 1000);
-			document.getElementsByClassName('wegonnagetitoneday')[0].innerText = `It has been
-				${Math.floor(sec / 60 / 60 / 24)} days, ${Math.floor(sec / 60 / 60) % 24} hours, ${Math.floor(sec / 60) % 60} minutes, and ${sec % 60} seconds
-				since cheatbuddy has spoken 🙏
-			`;
-		}, 100);
+			const sec = Math.floor(timeSince / 1e3);
+
+			document.getElementById("days").innerText = Math.floor(
+				sec / 60 / 60 / 24
+			);
+			document.getElementById("hours").innerText = Math.floor(
+				(sec / 60 / 60) % 24
+			);
+			document.getElementById("minutes").innerText = Math.floor(
+				(sec / 60) % 60
+			);
+			document.getElementById("seconds").innerText = sec % 60;
+		}, 1e3);
 	</script>
 </head>
+
 <body>
-	<video class="oneday" src="assets/oneday.mp4" onclick="this.muted = !this.muted;" onplaying="this.volume = 0.5;" autoplay muted loop></video>
+	<video class="oneday" src="assets/oneday.mp4" onclick="this.muted = !this.muted;" onplaying="this.volume = 0.5;"
+		autoplay muted loop></video>
 	<div class="imahaveitoneday">
-		<h3 class="wegonnagetitoneday"></h3>
+		<h3 class="wegonnagetitoneday">
+			It has been
+			<br />
+			<span id="days">0</span> days, <span id="hours">0</span> hours,
+			<span id="minutes">0</span> minutes, and
+			<span id="seconds">0</span> seconds
+			<br />since cheatbuddy has spoken 🙏
+		</h3>
 		<image class="someday" src="assets/comment.png"></image>
 	</div>
 </body>
